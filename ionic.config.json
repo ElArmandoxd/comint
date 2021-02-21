@@ -1,0 +1,7 @@
+{
+  "name": "comint",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
