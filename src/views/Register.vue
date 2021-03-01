@@ -7,69 +7,61 @@
         <br>
         <br>
         <div class="input-group">
-          <p class="subtitle">User sign in </p>
+          <p class="subtitle">User Sign up</p>
           <div class="input-label">
           <label for="">Username</label>
             <ion-item>
               <ion-input type="text" v-model="username"></ion-input>
             </ion-item>
           </div>
+           <div class="input-label">
+            <label for="">Email</label>
+            <ion-item>
+              <ion-input type="email" v-model="email"></ion-input>
+            </ion-item>
+          </div>
           <div class="input-label">
-          <label for="">Password</label>
+            <label for="">Password</label>
             <ion-item>
               <ion-input type="password" v-model="password"></ion-input>
             </ion-item>
           </div>
+          <div class="input-label">
+          <label for="">Confirm password</label>
+            <ion-item>
+              <ion-input type="password" v-model="conf_password"></ion-input>
+            </ion-item>
+          </div>
           <br>
-          <router-link to="/forgot" class="a-link">Forgot password? click here.</router-link>
-          <ion-button expand="block">SIGN IN</ion-button>
-          <router-link to="/Register"><ion-button expand="block">REGISTER</ion-button></router-link>
+          <ion-button expand="block">SIGN UP</ion-button>
+          <router-link to="/login">
+            <ion-button expand="block">LOGIN</ion-button>
+          </router-link>
         </div>
       </div>
     </ion-content>
   </ion-page>
 </template>
-<script>
-import axios from 'axios';
-import config from '../config/config'
+<script>//@ts-nocheck
 import { IonContent, IonPage, IonItem, IonInput, IonButton} from '@ionic/vue';
 
 export default {
-  name: 'Home',
-  components: {
-    IonContent,
-    IonPage,
-    IonItem,
-    IonInput,
-    IonButton
-  },
-  data(){
-    return{
-      username: null,
-      password: null,
-    }
-  },
-  created(){
-
-  },
-  methods:{
-    login(){
-      axios.post(config.SERVERURL+'/api/login', {
-        username: this.username,
-        password: this.password
-      })
-      .then(
-        response => {
-          console.log(response.data);
+    name: 'Register',
+    components: {
+        IonContent,
+        IonPage,
+        IonItem,
+        IonInput,
+        IonButton
+    },
+    data(){
+        return{
+            username: null,
+            password: null,
+            email: null,
+            conf_password: null
         }
-      )
-      .catch(
-        error =>{
-          console.log(error);
-        }
-      )
     }
-  }
 }
 </script>
 
